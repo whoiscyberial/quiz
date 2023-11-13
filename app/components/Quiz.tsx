@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ChoiceButton } from './ChoiceButton'
 import { Question } from './Question'
 import { Result } from './Result'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export const Quiz = () => {
 	const [choices, setChoices] = useState('')
@@ -232,11 +233,12 @@ export const Quiz = () => {
 
 	return (
 		<div className='flex flex-col w-full items-center'>
-			<section>{renderComponent(choices)}</section>
+			<section key={choices}>{renderComponent(choices)}</section>
 			<section className='flex flex-wrap gap-4 absolute bottom-0 justify-center items-center mb-[5vh]'>
 				{results.map((resultWord, idx) => {
 					return (
 						<div
+							key={idx}
 							className={`group flex flex-col  hover:text-neutral-300 hover:bg-neutral-900/30 transition-all cursor-default border border-neutral-900 p-4 rounded-lg`}
 						>
 							<span
