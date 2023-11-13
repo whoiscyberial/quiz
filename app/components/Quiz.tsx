@@ -5,63 +5,247 @@ import { Result } from './Result'
 
 export const Quiz = () => {
 	const [choices, setChoices] = useState('')
+	const [result, setResult] = useState<[number, number, number, number, number]>([0, 0, 0, 0, 0])
 
 	console.log('choices:', choices)
+	console.log('result: ', result)
 
 	const componentMap: { [key: string]: React.ReactNode } = {
-		'': <Question choices={choices} answers={questions.start.answers} question={questions.start.question} setChoices={setChoices} />,
-		'1': <Question choices={choices} question={questions.season.question} answers={questions.season.answers} setChoices={setChoices} />,
-		'11': <Question choices={choices} question={questions.cold.question} answers={questions.cold.answers} setChoices={setChoices} />,
-		'12': <Question choices={choices} question={questions.weather.question} answers={questions.weather.answers} setChoices={setChoices} />,
-		'13': <Question choices={choices} question={questions.weather.question} answers={questions.weather.answers} setChoices={setChoices} />,
-		'14': <Question choices={choices} question={questions.weather.question} answers={questions.weather.answers} setChoices={setChoices} />,
-		'121': <Question choices={choices} question={questions.style.question} answers={questions.style.answers} setChoices={setChoices} />,
-		'131': <Question choices={choices} question={questions.style.question} answers={questions.style.answers} setChoices={setChoices} />,
-		'141': <Question choices={choices} question={questions.style.question} answers={questions.style.answers} setChoices={setChoices} />,
-		'122': <Question choices={choices} question={questions.style.question} answers={questions.style.answers} setChoices={setChoices} />,
-		'132': <Question choices={choices} question={questions.style.question} answers={questions.style.answers} setChoices={setChoices} />,
-		'142': <Question choices={choices} question={questions.style.question} answers={questions.style.answers} setChoices={setChoices} />,
-		'1211': <Question choices={choices} question={questions.hot.question} answers={questions.hot.answers} setChoices={setChoices} />,
-		'1311': <Question choices={choices} question={questions.hot.question} answers={questions.hot.answers} setChoices={setChoices} />,
-		'1411': <Question choices={choices} question={questions.hot.question} answers={questions.hot.answers} setChoices={setChoices} />,
-		'1221': <Question choices={choices} question={questions.hot.question} answers={questions.hot.answers} setChoices={setChoices} />,
-		'1321': <Question choices={choices} question={questions.hot.question} answers={questions.hot.answers} setChoices={setChoices} />,
-		'1421': <Question choices={choices} question={questions.hot.question} answers={questions.hot.answers} setChoices={setChoices} />,
+		'': (
+			<Question
+				choices={choices}
+				answers={questions.start.answers}
+				question={questions.start.question}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.start}
+			/>
+		),
 
-		'111': <Result result={'Шапка-ушанка'} setChoices={setChoices} />,
+		'1': (
+			<Question
+				choices={choices}
+				question={questions.season.question}
+				answers={questions.season.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.season}
+			/>
+		),
 
-		'112': <Result result={'Шапка'} setChoices={setChoices} />,
-		'123': <Result result={'Шляпа'} setChoices={setChoices} />,
-		'133': <Result result={'Шляпа'} setChoices={setChoices} />,
-		'143': <Result result={'Шляпа'} setChoices={setChoices} />,
-		'1212': <Result result={'Шляпа'} setChoices={setChoices} />,
-		'1312': <Result result={'Шляпа'} setChoices={setChoices} />,
-		'1412': <Result result={'Шляпа'} setChoices={setChoices} />,
-		'1222': <Result result={'Шляпа'} setChoices={setChoices} />,
-		'1322': <Result result={'Шляпа'} setChoices={setChoices} />,
-		'1422': <Result result={'Шляпа'} setChoices={setChoices} />,
+		'11': (
+			<Question
+				choices={choices}
+				question={questions.cold.question}
+				answers={questions.cold.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.cold}
+			/>
+		),
 
-		'12111': <Result result={'Кепка'} setChoices={setChoices} />,
-		'13111': <Result result={'Кепка'} setChoices={setChoices} />,
-		'14111': <Result result={'Кепка'} setChoices={setChoices} />,
-		'12211': <Result result={'Кепка'} setChoices={setChoices} />,
-		'13211': <Result result={'Кепка'} setChoices={setChoices} />,
-		'14211': <Result result={'Кепка'} setChoices={setChoices} />,
+		'12': (
+			<Question
+				choices={choices}
+				question={questions.weather.question}
+				answers={questions.weather.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.weather}
+			/>
+		),
+		'13': (
+			<Question
+				choices={choices}
+				question={questions.weather.question}
+				answers={questions.weather.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.weather}
+			/>
+		),
+		'14': (
+			<Question
+				choices={choices}
+				question={questions.weather.question}
+				answers={questions.weather.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.weather}
+			/>
+		),
 
-		'12112': <Result result={'Панама'} setChoices={setChoices} />,
-		'13112': <Result result={'Панама'} setChoices={setChoices} />,
-		'14112': <Result result={'Панама'} setChoices={setChoices} />,
-		'12212': <Result result={'Панама'} setChoices={setChoices} />,
-		'13212': <Result result={'Панама'} setChoices={setChoices} />,
-		'14212': <Result result={'Панама'} setChoices={setChoices} />,
+		'121': (
+			<Question
+				choices={choices}
+				question={questions.style.question}
+				answers={questions.style.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.style}
+			/>
+		),
+		'131': (
+			<Question
+				choices={choices}
+				question={questions.style.question}
+				answers={questions.style.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.style}
+			/>
+		),
+		'141': (
+			<Question
+				choices={choices}
+				question={questions.style.question}
+				answers={questions.style.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.style}
+			/>
+		),
+		'122': (
+			<Question
+				choices={choices}
+				question={questions.style.question}
+				answers={questions.style.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.style}
+			/>
+		),
+		'132': (
+			<Question
+				choices={choices}
+				question={questions.style.question}
+				answers={questions.style.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.style}
+			/>
+		),
+		'142': (
+			<Question
+				choices={choices}
+				question={questions.style.question}
+				answers={questions.style.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.style}
+			/>
+		),
+
+		'1211': (
+			<Question
+				choices={choices}
+				question={questions.hot.question}
+				answers={questions.hot.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.hot}
+			/>
+		),
+		'1311': (
+			<Question
+				choices={choices}
+				question={questions.hot.question}
+				answers={questions.hot.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.hot}
+			/>
+		),
+		'1411': (
+			<Question
+				choices={choices}
+				question={questions.hot.question}
+				answers={questions.hot.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.hot}
+			/>
+		),
+		'1221': (
+			<Question
+				choices={choices}
+				question={questions.hot.question}
+				answers={questions.hot.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.hot}
+			/>
+		),
+		'1321': (
+			<Question
+				choices={choices}
+				question={questions.hot.question}
+				answers={questions.hot.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.hot}
+			/>
+		),
+		'1421': (
+			<Question
+				choices={choices}
+				question={questions.hot.question}
+				answers={questions.hot.answers}
+				setChoices={setChoices}
+				result={result}
+				setResult={setResult}
+				experts={experts.hot}
+			/>
+		),
 	}
 
 	const renderComponent = (key: string) => {
-		return componentMap.hasOwnProperty(key) ? componentMap[key] : null
+		return componentMap.hasOwnProperty(key) ? (
+			componentMap[key]
+		) : (
+			<Result
+				result={`${findIndexesOfTop3Values(result).map(idx => {
+					return ` ${results[idx]}`
+				})}`}
+				setChoices={setChoices}
+				setResult={setResult}
+			/>
+		)
 	}
 
 	return <>{renderComponent(choices)}</>
 }
+
+const findIndexesOfTop3Values = (arr: number[]): number[] => {
+	const indexedValues = arr.map((value, index) => ({
+		value,
+		index,
+	}))
+
+	indexedValues.sort((a, b) => b.value - a.value)
+	const top3Indexes = indexedValues.slice(0, 3).map(({ index }) => index)
+
+	return top3Indexes
+}
+
+const results = ['Шапка-ушанка', 'Шапка', 'Кепка', 'Панама', 'Шляпа']
 
 const questions = {
 	start: { question: 'Выбор головного убора', answers: ['Начать'] },
@@ -70,6 +254,34 @@ const questions = {
 	weather: { question: 'Какая сейчас погода?', answers: ['Солнечно', 'Пасмурно', 'Дождливо'] },
 	style: { question: 'Какой стиль предпочитаете?', answers: ['Современный', 'Оффициальный'] },
 	hot: { question: 'Сейчас жарко?', answers: ['Нет', 'Да'] },
+}
+
+// вопрос: {ответ: оценка}
+const experts = {
+	start: [[0, 0, 0, 0, 0]],
+	season: [
+		[5, 4, 2, 2, 2],
+		[1, 2, 5, 4, 3],
+		[1, 3, 4, 3, 4],
+		[1, 3, 4, 3, 4],
+	],
+	cold: [
+		[5, 4, 2, 1, 3],
+		[3, 5, 2, 2, 3],
+	],
+	weather: [
+		[1, 2, 5, 4, 3],
+		[1, 2, 4, 4, 4],
+		[1, 2, 4, 4, 4],
+	],
+	style: [
+		[1, 3, 5, 2, 3],
+		[1, 4, 3, 3, 5],
+	],
+	hot: [
+		[1, 3, 3, 3, 5],
+		[1, 3, 3, 3, 5],
+	],
 }
 
 /*
