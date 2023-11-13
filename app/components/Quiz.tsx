@@ -233,14 +233,30 @@ export const Quiz = () => {
 	return (
 		<div className='flex flex-col w-full items-center'>
 			<section>{renderComponent(choices)}</section>
-			<section className='flex flex-row gap-4 absolute bottom-0 mb-[5vh]'>
+			<section className='flex flex-wrap gap-4 absolute bottom-0 justify-center items-center mb-[5vh]'>
 				{results.map((resultWord, idx) => {
 					return (
-						<div className='flex flex-col hover:bg-neutral-900 transition-all cursor-default border border-neutral-900 p-4 rounded-lg'>
-							<div className='flex'>{resultWord}</div>
-							<span className={`${findIndexesOfTop3Values(result).includes(idx) && !result.includes(0) ? 'text-green-700' : ''} text-xl mt-2`}>
+						<div
+							className={`group flex flex-col  hover:text-neutral-300 hover:bg-neutral-900/30 transition-all cursor-default border border-neutral-900 p-4 rounded-lg`}
+						>
+							<span
+								className={`${
+									findIndexesOfTop3Values(result).includes(idx) && !result.includes(0)
+										? 'text-neutral-200 group-hover:text-neutral-300'
+										: 'text-neutral-600 group-hover:text-neutral-300'
+								} lg:text-xl mb-2 transition-all`}
+							>
 								{result[idx]}
 							</span>
+							<div
+								className={`${
+									findIndexesOfTop3Values(result).includes(idx) && !result.includes(0)
+										? 'text-neutral-400 group-hover:text-neutral-200'
+										: 'text-neutral-600 group-hover:text-neutral-300'
+								} flex text-sm transition-all`}
+							>
+								{resultWord}
+							</div>
 						</div>
 					)
 				})}

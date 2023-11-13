@@ -15,9 +15,9 @@ export const Question = ({ question, answers, setChoices, choices, result, setRe
 	const newResult: [number, number, number, number, number] = [0, 0, 0, 0, 0]
 	return (
 		<>
-			<h1 className='text-2xl font-medium mb-7 text-slate-200'>{question}</h1>
+			<h1 className='text-2xl font-medium mb-7'>{question}</h1>
 			{choices === '' ? (
-				<h2 className='-mt-4 mb-7 text-slate-300'>
+				<h2 className='-mt-4 mb-8 text-neutral-300'>
 					Тест, в котором нужно ответить на несколько вопросов, чтобы узнать, какой головной убор сегодня Вам стоит надеть.
 				</h2>
 			) : (
