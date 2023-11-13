@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 240, 240, 240;
-  --background-rgb: 15, 15, 15;
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+	@apply bg-neutral-950 text-neutral-200;
 }

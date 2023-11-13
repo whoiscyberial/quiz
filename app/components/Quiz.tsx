@@ -230,7 +230,23 @@ export const Quiz = () => {
 		)
 	}
 
-	return <>{renderComponent(choices)}</>
+	return (
+		<div className='flex flex-col w-full items-center'>
+			<section>{renderComponent(choices)}</section>
+			<section className='flex flex-row gap-4 absolute bottom-0 mb-[5vh]'>
+				{results.map((resultWord, idx) => {
+					return (
+						<div className='flex flex-col hover:bg-neutral-900 transition-all cursor-default border border-neutral-900 p-4 rounded-lg'>
+							<div className='flex'>{resultWord}</div>
+							<span className={`${findIndexesOfTop3Values(result).includes(idx) && !result.includes(0) ? 'text-green-700' : ''} text-xl mt-2`}>
+								{result[idx]}
+							</span>
+						</div>
+					)
+				})}
+			</section>
+		</div>
+	)
 }
 
 const findIndexesOfTop3Values = (arr: number[]): number[] => {
