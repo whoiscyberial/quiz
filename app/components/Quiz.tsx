@@ -232,21 +232,21 @@ export const Quiz = () => {
 	}
 
 	return (
-		<div className='flex flex-col w-full items-center'>
+		<div className='flex flex-col w-full items-center mt-[6vh] sm:mt-0 gap-[4vh] sm:gap-0'>
 			<section key={choices}>{renderComponent(choices)}</section>
-			<section className='flex flex-wrap gap-4 absolute bottom-0 justify-center items-center mb-[5vh]'>
+			<section className='flex flex-wrap gap-4 sm:absolute sm:bottom-0 justify-center items-center mb-[2vh] lg:mb-[5vh]'>
 				{results.map((resultWord, idx) => {
 					return (
 						<div
 							key={idx}
-							className={`group flex flex-col  hover:text-neutral-300 hover:bg-neutral-900/30 transition-all cursor-default border border-neutral-900 p-4 rounded-lg`}
+							className={`group flex flex-col  hover:text-neutral-300 hover:bg-neutral-900/30 transition-all cursor-default border border-neutral-900 p-3 lg:p-4 rounded-lg`}
 						>
 							<span
 								className={`${
 									findIndexesOfTop3Values(result).includes(idx) && !result.includes(0)
 										? 'text-neutral-200 group-hover:text-neutral-300'
 										: 'text-neutral-600 group-hover:text-neutral-300'
-								} lg:text-xl mb-2 transition-all`}
+								} lg:text-xl mb-1 lg:mb-2 transition-all`}
 							>
 								{result[idx]}
 							</span>
